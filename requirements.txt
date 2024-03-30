@@ -1,0 +1,14 @@
+# Install virtualenv if you haven't already
+pip install virtualenv
+
+# Create a virtual environment
+virtualenv venv
+
+# Activate the virtual environment
+# On Windows
+venv\Scripts\activate
+# On macOS/Linux
+source venv/bin/activate
+
+# Install your project dependencies
+pip install flask
