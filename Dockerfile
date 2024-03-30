@@ -7,14 +7,14 @@ WORKDIR /app
 # Copy the current directory contents into the container at /app
 COPY . /app
 
-# Install any needed dependencies specified in requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+# Install Flask and any other dependencies
+RUN pip install --no-cache-dir flask
 
-# Make port 80 available to the world outside this container
+# Expose port 80 to allow external connections
 EXPOSE 80
 
 # Define environment variable
-ENV NAME World
+ENV FLASK_APP=app.py
 
-# Run app.py when the container launches
-CMD ["python", "app.py"]
+# Run the Flask application when the container launches
+CMD ["flask", "run", "--host=0.0.0.0", "--port=80"]
